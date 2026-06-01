@@ -1,0 +1,53 @@
+# Project-specific ignores
+figures/
+docs/
+notebooks/notebooks_other/
+reports/spare.zip
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+*.env
+
+# Environment/config files
+.env
+.env.*
+!.env.example
+
+# Python cache/build files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data/output artifacts
+*.log
+*.tmp
+*.bak
+*.zip
+*.tar.gz
+
+# macOS
+.DS_Store
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Conda
+.conda/
+conda-meta/
+
+# Python packaging
+build/
+dist/
+*.egg-info/

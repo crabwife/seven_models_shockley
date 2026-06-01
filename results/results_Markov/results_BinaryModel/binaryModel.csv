@@ -1,0 +1,5 @@
+stage,P_nothing_to_nothing,P_nothing_to_something,P_something_to_nothing,P_something_to_something
+0-4,0.365,0.635,0.099,0.901
+5-7,0.419,0.581,0.083,0.917
+8-13,0.463,0.537,0.094,0.906
+14-20,0.485,0.515,0.109,0.891

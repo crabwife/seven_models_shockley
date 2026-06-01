@@ -1,0 +1,61 @@
+combined Markov-hurdled stagewise AR(1) report
+
+
+Model
+
+B_{t+1} | B_t ~ Bernoulli(P_t[B_t, 1])
+Q_{t+1} = 0 if B_{t+1}=0
+Q_{t+1} ~ Exponential(lambda_R) if B_t=0 and B_{t+1}=1
+log(Q_{t+1}) = intercept_s + beta_s log(Q_t) + error_{t,s} if B_t=1 and B_{t+1}=1
+error_{t,s} ~ Normal(0, sigma_s^2)
+
+EPS = 0.49
+N = 50000
+Y = 20
+p_init_active = 0.7902368293861769
+alpha_q0_pos = 5.4473276642909285
+lambda_q0_pos = 0.18357625272945072
+alpha_restart = 4.299784306131943
+lambda_restart = 0.23256980555371004
+
+Yearwise binary transition summary
+
+ year    n  P_nothing_to_nothing  P_nothing_to_something  P_something_to_nothing  P_something_to_something
+    0 2067              0.380184                0.619816                0.164115                  0.835885
+    1 2143              0.316397                0.683603                0.108772                  0.891228
+    2 2202              0.362229                0.637771                0.075040                  0.924960
+    3 2247              0.379845                0.620155                0.082453                  0.917547
+    4 2259              0.408397                0.591603                0.075613                  0.924387
+    5 2200              0.441860                0.558140                0.077240                  0.922760
+    6 2142              0.408397                0.591603                0.078191                  0.921809
+    7 2059              0.407115                0.592885                0.095238                  0.904762
+    8 1985              0.407273                0.592727                0.085965                  0.914035
+    9 1895              0.482625                0.517375                0.093521                  0.906479
+   10 1814              0.452899                0.547101                0.092978                  0.907022
+   11 1710              0.454887                0.545113                0.096953                  0.903047
+   12 1599              0.486486                0.513514                0.087313                  0.912687
+   13 1493              0.502075                0.497925                0.108626                  0.891374
+   14 1367              0.470817                0.529183                0.099099                  0.900901
+   15 1271              0.456522                0.543478                0.110471                  0.889529
+   16 1174              0.493151                0.506849                0.101571                  0.898429
+   17 1094              0.514851                0.485149                0.134529                  0.865471
+   18 1023              0.506849                0.493151                0.103234                  0.896766
+   19  957              0.471503                0.528497                0.108639                  0.891361
+
+Stagewise positive-only AR(1) parameters
+
+stage    n  intercept     beta  sigma_resid  var_resid  implied_stationary_mean_log  implied_stationary_var_log    mean_resid  sd_resid
+  0-4 8298   0.872684 0.549230     0.635833   0.404284                     1.935984                    0.578916  1.488860e-15  0.635833
+  5-7 5159   0.706953 0.591138     0.638334   0.407471                     1.729075                    0.626343 -7.051713e-16  0.638334
+ 8-13 8084   0.617526 0.621251     0.651541   0.424506                     1.630435                    0.691324  7.669933e-16  0.651541
+14-20 4958   0.558044 0.654173     0.648712   0.420827                     1.613650                    0.735637  7.588390e-16  0.648712
+
+Global positive-only AR(1) parameters
+
+          model     n  intercept     beta  sigma_resid  var_resid  implied_stationary_mean_log  implied_stationary_var_log    mean_resid  sd_resid
+global_positive 26499   0.706327 0.597931     0.646869    0.41844                      1.75673                     0.65129 -2.150478e-16  0.646869
+
+summary
+-------
+ empirical_mean_y0  empirical_mean_y5  empirical_mean_y10  empirical_mean_y20  simulated_mean_y0  simulated_mean_y5  simulated_mean_y10  simulated_mean_y20  empirical_median_y0  empirical_median_y5  empirical_median_y10  empirical_median_y20  simulated_median_y0  simulated_median_y5  simulated_median_y10  simulated_median_y20  empirical_frac_zero_y0  empirical_frac_zero_y5  empirical_frac_zero_y10  empirical_frac_zero_y20  simulated_frac_zero_y0  simulated_frac_zero_y5  simulated_frac_zero_y10  simulated_frac_zero_y20  lambda_restart  alpha_restart  restart_n  simulated_y20_q95  simulated_y20_q99  simulated_y20_max  ks_year_max_stat  ks_year_max_p  ks_cum_y5_stat  ks_cum_y5_p  ks_zero_count_stat  ks_zero_count_p
+          4.304679           7.729319            6.428626            5.797863           4.300163           7.055792            5.772617            5.211964             3.225469             6.352937              4.614405              3.694654             2.491719             5.143206              3.968369              3.408615                0.209763                0.113746                 0.146085                 0.181818                 0.20858                 0.11316                  0.14582                   0.1744         0.23257       4.299784       3061          16.726771          30.661284         137.330432          0.078625       0.000415        0.067782     0.003646            0.154976     9.487995e-15

@@ -1,0 +1,37 @@
+AR(1)-GRW-S report
+
+
+Model
+
+z_{t+1} = intercept_s + beta_s z_t + error_{t,s}
+where z_t = log(pubs_adj_t + EPS).
+
+EPS = 0.49
+N = 50000
+Y = 20
+
+Stage log-productivity parameters
+
+stage     n  mean_log_productivity  var_log_productivity  sd_log_productivity
+  0-4 10961               1.389332              1.207742             1.098973
+  5-7  6647               1.635268              1.162562             1.078222
+ 8-13 11114               1.446425              1.237956             1.112635
+14-20  8404               1.296129              1.358901             1.165719
+
+Stage AR(1) parameters
+
+stage     n  intercept     beta  sigma_resid  var_resid  implied_stationary_mean_log  implied_stationary_var_log    mean_resid  sd_resid
+  0-4 10918   0.845013 0.471486     0.970102   0.941097                     1.598846                    1.210102  4.464484e-16  0.970102
+  5-7  6401   0.681103 0.544706     0.913378   0.834259                     1.495963                    1.186214 -2.886129e-17  0.913378
+ 8-13 10496   0.554353 0.589891     0.902709   0.814883                     1.351720                    1.249765  4.928307e-16  0.902709
+14-20  6886   0.474408 0.627794     0.901292   0.812328                     1.274582                    1.340751  1.279513e-16  0.901292
+
+Global AR(1) parameters
+
+ model     n  intercept     beta  sigma_resid  var_resid  implied_stationary_mean_log  implied_stationary_var_log   mean_resid  sd_resid
+global 34701   0.646586 0.555915     0.930687   0.866178                     1.455995                    1.253588 2.522661e-16  0.930687
+
+summary
+-------
+ empirical_mean_y0  empirical_mean_y5  empirical_mean_y10  empirical_mean_y20  simulated_mean_y0  simulated_mean_y5  simulated_mean_y10  simulated_mean_y20  empirical_median_y0  empirical_median_y5  empirical_median_y10  empirical_median_y20  simulated_median_y0  simulated_median_y5  simulated_median_y10  simulated_median_y20  simulated_y20_q95  simulated_y20_q99  simulated_y20_max  ks_year_max_stat  ks_year_max_p  ks_cum_y5_stat  ks_cum_y5_p
+          4.304679           7.729319            6.428626            5.797863           4.312892           8.480229            7.099735            6.567645             3.225469             6.352937              4.614405              3.694654             2.982699             4.429548              3.593638              3.079877          24.118516          54.043561         577.696205          0.075705       0.000769        0.048972     0.073775
