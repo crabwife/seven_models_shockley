@@ -1,0 +1,11 @@
+model,path,class,class_label
+Naïve-GRW-S,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/naive_grw_s_trajs.npy,naive,Naïve
+Naïve-GRW-Y,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/naive_grw_y_trajs.npy,naive,Naïve
+AR(1)-GRW-S,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/ar1_grw_s_trajs.npy,ar1,AR(1)
+AR(1)-GRW-Y,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/ar1_grw_y_trajs.npy,ar1,AR(1)
+Hurdle-AR(1)-GRW-P,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/hurdle_ar1_grw_p_trajs.npy,ar1,AR(1)
+Hurdle-AR(1)-GRW-Y,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/hurdle_ar1_grw_y_trajs.npy,ar1,AR(1)
+Hurdle-AR(1)-GRW-PG-ZD,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/hurdle_ar1_grw_pg_zd_trajs.npy,pg_zd,PG-ZD
+Hurdle-TGRW-PG-ZD,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/hurdle_tgrw_pg_zd_trajs.npy,pg_zd,PG-ZD
+hurdle-AR(1)-PG-ZR-P/AD-se,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/hurdle_ar1_pg_zr_pad_se_trajs.npy,pad,P/AD
+hurdle-AR(1)-PG-ZR-P/AD,/Users/samlunemagid/Desktop/shockley_repo/data/trajectory_correlation_data/hurdle_ar1_pg_zr_pad_trajs.npy,pad,P/AD

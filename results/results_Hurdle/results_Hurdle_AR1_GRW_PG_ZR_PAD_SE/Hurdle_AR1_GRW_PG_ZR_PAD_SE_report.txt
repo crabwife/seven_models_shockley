@@ -1,0 +1,150 @@
+parametric productivity-, active-duration-, zero-run-, and scholar-effect-conditioned hurdle with gamma initialization and yearwise AR(1) report
+
+Model
+
+u_i is a latent scholar effect drawn from an estimated population distribution, not fit to named simulated scholars.
+B_0 ~ Bernoulli(logistic(eta_0 + phi_0 u_i)).
+Q_0 ~ Gamma(k_0, theta_0) * exp(s_0 u_i) / E[exp(s_0 u_i)] if B_0=1; otherwise Q_0=0.
+If B_t=0, Pr(B_{t+1}=1 | L_t, u_i) = logistic(c_t - rho (L_t - 1) + phi_R u_i/tau), where L_t is current zero-run length.
+If B_t=1, Pr(B_{t+1}=0 | Q_t, A_t, u_i) = logistic(a_t - gamma log(1 + Q_t) + delta log(1 + A_t - 1) + phi_D u_i/tau), where A_t is current active-run length.
+Q_{t+1} = 0 if B_{t+1}=0.
+Q_{t+1} ~ Exponential(lambda_R) * exp(s_R u_i) / E[exp(s_R u_i)] if B_t=0 and B_{t+1}=1.
+log(Q_{t+1}) = intercept_t + beta_t log(Q_t) + s_Z u_i + error_t if B_t=1 and B_{t+1}=1.
+error_t ~ Normal(0, sigma_t^2).
+
+EPS = 0.49
+N = 50000
+Y = 20
+SCHOLAR_EFFECT_DRAW_MODE = normal
+POSITIVE_AR1_EFFECT_SCALE = 0.2
+HURDLE_EFFECT_SCALE = 0.75
+INIT_ACTIVE_EFFECT_SCALE = 1.0
+INIT_MAGNITUDE_EFFECT_SCALE = 0.45
+RESTART_MAGNITUDE_EFFECT_SCALE = 0.4
+tau_scholar = 0.5625047022578336
+scholar_effect_sd_empirical = 0.5235036094384394
+p_init_active = 0.7902368293861769
+fitted_init_active_intercept = 1.3662607249861367
+fitted_init_active_scholar_coef = 0.9134687758244183
+gamma_q0_shape = 2.15167023161791
+gamma_q0_scale = 2.531674038263246
+gamma_q0_rate = 0.3949955582299252
+alpha_restart = 4.299784306131943
+lambda_restart = 0.23256980555371004
+dropout_gamma_log1p_q = 0.43149976442566396
+dropout_delta_log1p_active_run_excess = -0.931084632357183
+dropout_scholar_coef_per_tau = -0.47269217928790636
+dropout_nll = 7810.994770959116
+restart_rho_zero_run_excess = 0.2908537554047681
+restart_scholar_coef_per_tau = 0.23723848643029716
+restart_duration_nll = 3461.256871254434
+Scholar effect summary
+
+ n_scholars_with_positive_years  sigma_within2_centered_log_q  raw_var_scholar_mean_centered_log_q  mean_noise_var  tau_scholar2_mom  tau_scholar_mom  sd_shrunk_scholar_effect  mean_shrinkage  median_shrinkage
+                           2425                      0.313891                              0.35159        0.035178          0.316412         0.562505                  0.523504        0.908355            0.9291
+
+Parametric productivity + active-duration + scholar-effect dropout summary
+
+ year  n_active_transitions  observed_dropout_rate  dropout_intercept  dropout_gamma_log1p_q  dropout_delta_log1p_active_run_excess  dropout_scholar_coef_per_tau active_duration_effect_direction scholar_effect_direction  pred_drop_q50_run1_u_low  pred_drop_q50_run1_u_mid  pred_drop_q50_run1_u_high  pred_drop_q25_run1  pred_drop_q50_run1  pred_drop_q75_run1  pred_drop_q95_run1  pred_drop_q50_run2  pred_drop_q50_run5  pred_drop_q50_run10
+    0                  1633               0.164115          -0.945418                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.213880                  0.144997                   0.095602            0.172554            0.144997            0.121153            0.095112            0.081678            0.036512             0.019488
+    1                  1710               0.108772          -0.960776                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.211309                  0.143104                   0.094282            0.170372            0.143104            0.119528            0.093799            0.080533            0.035976             0.019196
+    2                  1879               0.075040          -1.138482                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.183208                  0.122663                   0.080162            0.146703            0.122663            0.102053            0.079745            0.068317            0.030296             0.016121
+    3                  1989               0.082453          -0.814434                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.236726                  0.162002                   0.107542            0.192065            0.162002            0.135806            0.106999            0.092056            0.041411             0.022155
+    4                  1997               0.075613          -0.709720                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.256165                  0.176726                   0.118013            0.208840            0.176726            0.148571            0.117424            0.101190            0.045773             0.024540
+    5                  1942               0.077240          -0.532941                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.291271                  0.203930                   0.137691            0.239549            0.203930            0.172348            0.137019            0.118440            0.054144             0.029147
+    6                  1880               0.078191          -0.439023                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.311031                  0.219601                   0.149226            0.257073            0.219601            0.186160            0.148507            0.128602            0.059161             0.031926
+    7                  1806               0.095238          -0.179571                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.369154                  0.267265                   0.185241            0.309644            0.267265            0.228693            0.184387            0.160580            0.075364             0.040995
+    8                  1710               0.085965          -0.296108                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.342452                  0.245070                   0.168293            0.285300            0.245070            0.208789            0.167501            0.145485            0.067635             0.036651
+    9                  1636               0.093521          -0.185323                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.367815                  0.266140                   0.184374            0.308415            0.266140            0.227680            0.183523            0.159806            0.074965             0.040770
+   10                  1538               0.092978          -0.162149                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.373220                  0.270691                   0.187885            0.313380            0.270691            0.231781            0.187021            0.162942            0.076587             0.041686
+   11                  1444               0.096953          -0.100054                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.387856                  0.283123                   0.197544            0.326894            0.283123            0.243021            0.196646            0.171590            0.081096             0.044238
+   12                  1340               0.087313          -0.229613                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.357578                  0.257580                   0.177807            0.299050            0.257580            0.219986            0.176979            0.153948            0.071950             0.039072
+   13                  1252               0.108626          -0.010431                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.409336                  0.301661                   0.212137            0.346911            0.301661            0.259885            0.211190            0.184706            0.088030             0.048186
+   14                  1110               0.099099          -0.107536                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.386081                  0.281607                   0.196360            0.325250            0.281607            0.241647            0.195467            0.170529            0.080540             0.043923
+   15                  1041               0.110471          -0.005478                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.410534                  0.302705                   0.212966            0.348034            0.302705            0.260839            0.212016            0.185453            0.088429             0.048414
+   16                   955               0.101571          -0.107315                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.386134                  0.281651                   0.196395            0.325298            0.281651            0.241688            0.195502            0.170560            0.080557             0.043932
+   17                   892               0.134529           0.288325                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.483018                  0.368037                   0.266327            0.417295            0.368037            0.321299            0.265220            0.233971            0.115151             0.063891
+   18                   804               0.103234          -0.020178                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.406982                  0.299612                   0.210512            0.344706            0.299612            0.258015            0.209571            0.183243            0.087251             0.047741
+   19                   764               0.108639          -0.025237                 0.4315                              -0.931085                     -0.472692                    lower dropout            lower dropout                  0.405761                  0.298551                   0.209673            0.343564            0.298551            0.257047            0.208734            0.182487            0.086849             0.047511
+
+Parametric restart-duration + scholar-effect summary
+
+ year  n_zero_transitions  observed_restart_rate  restart_intercept  restart_rho_zero_run_excess  restart_scholar_coef_per_tau scholar_effect_direction  pred_restart_run1_u_low  pred_restart_run1_u_mid  pred_restart_run1_u_high  pred_restart_run1  pred_restart_run2  pred_restart_run3  pred_restart_run5
+    0                 434               0.619816           0.560612                     0.290854                      0.237238           higher restart                 0.580146                 0.636594                  0.689515           0.636594           0.567034           0.494726           0.353703
+    1                 433               0.683603           0.968495                     0.290854                      0.237238           higher restart                 0.675081                 0.724819                  0.769543           0.724819           0.663212           0.595509           0.451424
+    2                 323               0.637771           0.873560                     0.290854                      0.237238           higher restart                 0.653921                 0.705486                  0.752278           0.705486           0.641690           0.572450           0.428039
+    3                 258               0.620155           0.868304                     0.290854                      0.237238           higher restart                 0.652731                 0.704393                  0.751297           0.704393           0.640480           0.571163           0.426753
+    4                 262               0.591603           0.734873                     0.290854                      0.237238           higher restart                 0.621903                 0.675874                  0.725540           0.675874           0.609216           0.538217           0.394474
+    5                 258               0.558140           0.628285                     0.290854                      0.237238           higher restart                 0.596535                 0.652100                  0.703813           0.652100           0.583566           0.511642           0.369321
+    6                 262               0.591603           0.807480                     0.290854                      0.237238           higher restart                 0.638819                 0.691572                  0.739759           0.691572           0.626358           0.556204           0.411944
+    7                 253               0.592885           0.828267                     0.290854                      0.237238           higher restart                 0.643601                 0.695988                  0.743741           0.695988           0.631211           0.561330           0.416989
+    8                 275               0.592727           0.805300                     0.290854                      0.237238           higher restart                 0.638316                 0.691107                  0.739340           0.691107           0.625848           0.555666           0.411416
+    9                 259               0.517375           0.496130                     0.290854                      0.237238           higher restart                 0.564364                 0.621549                  0.675544           0.621549           0.551140           0.478619           0.339105
+   10                 276               0.547101           0.623423                     0.290854                      0.237238           higher restart                 0.595364                 0.650997                  0.702799           0.650997           0.582384           0.510427           0.368189
+   11                 266               0.545113           0.664260                     0.290854                      0.237238           higher restart                 0.605162                 0.660217                  0.711257           0.660217           0.592282           0.520627           0.377739
+   12                 259               0.513514           0.544065                     0.290854                      0.237238           higher restart                 0.576111                 0.632758                  0.685961           0.632758           0.562967           0.490591           0.349929
+   13                 241               0.497925           0.535281                     0.290854                      0.237238           higher restart                 0.573964                 0.630714                  0.684066           0.630714           0.560804           0.488396           0.347934
+   14                 257               0.529183           0.651344                     0.290854                      0.237238           higher restart                 0.602072                 0.657313                  0.708598           0.657313           0.589159           0.517402           0.374708
+   15                 230               0.543478           0.758790                     0.290854                      0.237238           higher restart                 0.627510                 0.681091                  0.730277           0.681091           0.614895           0.544155           0.400202
+   16                 219               0.506849           0.611893                     0.290854                      0.237238           higher restart                 0.592583                 0.648372                  0.700385           0.648372           0.579578           0.507546           0.365511
+   17                 202               0.485149           0.462641                     0.290854                      0.237238           higher restart                 0.556113                 0.613640                  0.668161           0.613640           0.542841           0.470268           0.331641
+   18                 219               0.493151           0.461043                     0.290854                      0.237238           higher restart                 0.555719                 0.613262                  0.667807           0.613262           0.542445           0.469870           0.331286
+   19                 193               0.528497           0.661529                     0.290854                      0.237238           higher restart                 0.604509                 0.659604                  0.710696           0.659604           0.591622           0.519945           0.377098
+
+Yearwise binary transition summary
+
+ year    n  P_nothing_to_nothing  P_nothing_to_something  P_something_to_nothing  P_something_to_something
+    0 2067              0.380184                0.619816                0.164115                  0.835885
+    1 2143              0.316397                0.683603                0.108772                  0.891228
+    2 2202              0.362229                0.637771                0.075040                  0.924960
+    3 2247              0.379845                0.620155                0.082453                  0.917547
+    4 2259              0.408397                0.591603                0.075613                  0.924387
+    5 2200              0.441860                0.558140                0.077240                  0.922760
+    6 2142              0.408397                0.591603                0.078191                  0.921809
+    7 2059              0.407115                0.592885                0.095238                  0.904762
+    8 1985              0.407273                0.592727                0.085965                  0.914035
+    9 1895              0.482625                0.517375                0.093521                  0.906479
+   10 1814              0.452899                0.547101                0.092978                  0.907022
+   11 1710              0.454887                0.545113                0.096953                  0.903047
+   12 1599              0.486486                0.513514                0.087313                  0.912687
+   13 1493              0.502075                0.497925                0.108626                  0.891374
+   14 1367              0.470817                0.529183                0.099099                  0.900901
+   15 1271              0.456522                0.543478                0.110471                  0.889529
+   16 1174              0.493151                0.506849                0.101571                  0.898429
+   17 1094              0.514851                0.485149                0.134529                  0.865471
+   18 1023              0.506849                0.493151                0.103234                  0.896766
+   19  957              0.471503                0.528497                0.108639                  0.891361
+
+Yearwise positive-only AR(1) parameters
+
+ year    n  intercept     beta  sigma_resid  var_resid  implied_stationary_mean_log  implied_stationary_var_log    mean_resid  sd_resid
+    0 1365   0.819365 0.487050     0.659691   0.435192                     1.597357                    0.570532 -2.931314e-16  0.659691
+    1 1524   1.012746 0.480930     0.632968   0.400649                     1.951079                    0.521199 -7.960969e-16  0.632968
+    2 1738   0.883562 0.565076     0.635208   0.403490                     2.031531                    0.592766 -4.497106e-17  0.635208
+    3 1825   0.864084 0.564572     0.626882   0.392981                     1.984447                    0.576845  9.616661e-16  0.626882
+    4 1846   0.861894 0.565928     0.611380   0.373786                     1.985604                    0.549907 -5.032690e-16  0.611380
+    5 1792   0.762904 0.571968     0.635388   0.403717                     1.782353                    0.600009  7.335402e-17  0.635388
+    6 1733   0.688805 0.599914     0.628445   0.394943                     1.721643                    0.616999 -5.289095e-16  0.628445
+    7 1634   0.672751 0.599344     0.651036   0.423848                     1.679121                    0.661448 -8.283867e-16  0.651036
+    8 1563   0.695445 0.591099     0.641449   0.411457                     1.700767                    0.632424  2.312787e-16  0.641449
+    9 1483   0.641599 0.618118     0.652205   0.425371                     1.680096                    0.688380  4.012674e-17  0.652205
+   10 1395   0.629307 0.625080     0.659137   0.434462                     1.678509                    0.713079  2.139268e-16  0.659137
+   11 1304   0.640251 0.607205     0.635927   0.404403                     1.629989                    0.640586 -4.699717e-16  0.635927
+   12 1223   0.584664 0.629812     0.667782   0.445932                     1.579368                    0.739109 -7.995784e-16  0.667782
+   13 1116   0.487716 0.662089     0.649455   0.421791                     1.443327                    0.751002  2.582562e-16  0.649455
+   14 1000   0.542469 0.660182     0.650176   0.422729                     1.596354                    0.749308 -4.742873e-16  0.650176
+   15  926   0.617720 0.619974     0.667675   0.445790                     1.625465                    0.724118  1.942291e-16  0.667675
+   16  858   0.577521 0.658534     0.635251   0.403543                     1.691301                    0.712556  1.314670e-16  0.635251
+   17  772   0.495506 0.675361     0.628286   0.394743                     1.526332                    0.725782 -8.789745e-16  0.628286
+   18  721   0.595171 0.641488     0.656423   0.430891                     1.660117                    0.732194  2.931851e-16  0.656423
+   19  681   0.500322 0.678434     0.648627   0.420717                     1.555889                    0.779498 -1.434649e-15  0.648627
+
+Global positive-only AR(1) parameters
+
+          model     n  intercept     beta  sigma_resid  var_resid  implied_stationary_mean_log  implied_stationary_var_log    mean_resid  sd_resid
+global_positive 26499   0.706327 0.597931     0.646869    0.41844                      1.75673                     0.65129 -2.150478e-16  0.646869
+
+summary
+-------
+ empirical_mean_y0  empirical_mean_y5  empirical_mean_y10  empirical_mean_y20  simulated_mean_y0  simulated_mean_y5  simulated_mean_y10  simulated_mean_y20  empirical_median_y0  empirical_median_y5  empirical_median_y10  empirical_median_y20  simulated_median_y0  simulated_median_y5  simulated_median_y10  simulated_median_y20  empirical_frac_zero_y0  empirical_frac_zero_y5  empirical_frac_zero_y10  empirical_frac_zero_y20  simulated_frac_zero_y0  simulated_frac_zero_y5  simulated_frac_zero_y10  simulated_frac_zero_y20  scholar_effect_tau_mom  scholar_effect_sd_empirical_shrunk  positive_ar1_effect_scale  hurdle_effect_scale  init_active_effect_scale  init_magnitude_effect_scale  restart_magnitude_effect_scale  init_active_scholar_coef  dropout_gamma_log1p_q  dropout_delta_log1p_active_run_excess  dropout_scholar_coef_per_tau  dropout_nll  restart_rho_zero_run_excess  restart_scholar_coef_per_tau  restart_duration_nll  p_init_active  gamma_q0_shape  gamma_q0_scale  gamma_q0_rate  alpha_restart  lambda_restart  restart_n  simulated_y20_q95  simulated_y20_q99  simulated_y20_max  ks_year_max_stat  ks_year_max_p  ks_cum_y5_stat  ks_cum_y5_p  ks_zero_count_stat  ks_zero_count_p
+          4.304679           7.729319            6.428626            5.797863           4.346794           7.911635            6.707016            6.309463             3.225469             6.352937              4.614405              3.694654             3.469315             5.611243              4.410432              3.904076                0.209763                0.113746                 0.146085                 0.181818                 0.21536                 0.11234                  0.13784                  0.15052                0.562505                            0.523504                        0.2                 0.75                       1.0                         0.45                             0.4                  0.913469                 0.4315                              -0.931085                     -0.472692  7810.994771                     0.290854                      0.237238           3461.256871       0.790237         2.15167        2.531674       0.394996       4.299784         0.23257       3061          20.825136          40.070862          174.49619          0.088905       0.000039        0.037588     0.283904            0.074065         0.001076
