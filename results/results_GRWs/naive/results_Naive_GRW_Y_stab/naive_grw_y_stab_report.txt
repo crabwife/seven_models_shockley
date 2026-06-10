@@ -8,7 +8,7 @@ where z_t = log(pubs_adj_t + EPS).
 error_t ~ Normal(mean_log_delta_t, sigma_log_delta_t^2).
 
 EPS = 0.49
-N = 50000
+N = 10000
 Y = 20
 
 Yearwise log-productivity parameters
@@ -68,4 +68,4 @@ global 34701             0.646586      -0.444085         0.930687        0.00617
 summary
 -------
  empirical_mean_y0  empirical_mean_y5  empirical_mean_y10  empirical_mean_y20  simulated_mean_y0  simulated_mean_y5  simulated_mean_y10  simulated_mean_y20  empirical_median_y0  empirical_median_y5  empirical_median_y10  empirical_median_y20  simulated_median_y0  simulated_median_y5  simulated_median_y10  simulated_median_y20  simulated_y20_q95  simulated_y20_q99  simulated_y20_max  ks_year_max_stat  ks_year_max_p  ks_cum_y5_stat  ks_cum_y5_p
-          4.304679           7.729319            6.428626            5.797863           4.312892            9.10222            7.308657            6.365236             3.225469             6.352937              4.614405              3.694654             2.982699              4.89832              3.694178              2.985274          23.414361          52.400355         562.225109          0.076105       0.000707        0.043186     0.153129
+          4.304679           7.729319            6.428626            5.797863           4.318665           8.926961             7.24481            6.264975             3.225469             6.352937              4.614405              3.694654             3.019073             4.679094              3.746527              2.969145           23.06866          48.978718         200.613548           0.06552       0.007461        0.044849     0.144315
