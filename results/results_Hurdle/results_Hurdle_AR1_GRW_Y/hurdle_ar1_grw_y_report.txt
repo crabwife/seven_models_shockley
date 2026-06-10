@@ -10,7 +10,7 @@ log(Q_{t+1}) = intercept_t + beta_t log(Q_t) + error_t if B_t=1 and B_{t+1}=1
 error_t ~ Normal(0, sigma_t^2)
 
 EPS = 0.49
-N = 50000
+N = 10000
 Y = 20
 p_init_active = 0.7902368293861769
 alpha_q0_pos = 5.4473276642909285
@@ -74,4 +74,4 @@ global_positive 26499   0.706327 0.597931     0.646869    0.41844               
 summary
 -------
  empirical_mean_y0  empirical_mean_y5  empirical_mean_y10  empirical_mean_y20  simulated_mean_y0  simulated_mean_y5  simulated_mean_y10  simulated_mean_y20  empirical_median_y0  empirical_median_y5  empirical_median_y10  empirical_median_y20  simulated_median_y0  simulated_median_y5  simulated_median_y10  simulated_median_y20  empirical_frac_zero_y0  empirical_frac_zero_y5  empirical_frac_zero_y10  empirical_frac_zero_y20  simulated_frac_zero_y0  simulated_frac_zero_y5  simulated_frac_zero_y10  simulated_frac_zero_y20  lambda_restart  alpha_restart  restart_n  simulated_y20_q95  simulated_y20_q99  simulated_y20_max  ks_year_max_stat  ks_year_max_p  ks_cum_y5_stat  ks_cum_y5_p  ks_zero_count_stat  ks_zero_count_p
-          4.304679           7.729319            6.428626            5.797863           4.300163           7.232325             5.91778            5.174795             3.225469             6.352937              4.614405              3.694654             2.491719             5.332783              4.095853              3.336474                0.209763                0.113746                 0.146085                 0.181818                 0.20858                 0.11316                  0.14582                   0.1744         0.23257       4.299784       3061          16.737487          30.801966         139.462185          0.076165       0.000699        0.070062     0.002371            0.154976     9.487995e-15
+          4.304679           7.729319            6.428626            5.797863           4.249756           7.304379            6.033145            5.240312             3.225469             6.352937              4.614405              3.694654             2.444888             5.378458              4.162988              3.405219                0.209763                0.113746                 0.146085                 0.181818                   0.211                  0.1144                   0.1424                   0.1697         0.23257       4.299784       3061          17.234544          29.303861          76.445233          0.069545       0.003684        0.062887     0.011573            0.148196     7.758759e-13
