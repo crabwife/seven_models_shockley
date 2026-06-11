@@ -1,2 +1,0 @@
-model,n,threshold_quantile,global_threshold_c,kappa,global_sigma_resid,global_var_resid,global_mean_resid,global_sd_resid,global_mean_log_delta_pos,global_frac_above_threshold,global_mean_threshold_excess
-global_shared_kappa_thresholded_grw,26499,0.5,1.8283472797233242,0.4963529124351974,0.6835249058227,0.46720629687993087,-1.1154601233110746e-16,0.6835249058227,-0.01016381193620568,0.498245216800634,0.28899444026931537
