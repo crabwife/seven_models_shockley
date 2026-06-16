@@ -1,0 +1,7 @@
+quantity,source,qq_r,n_positive
+Career year 20,Naïve-GRW-Y,0.9916791785853395,6492
+Career year 20,Empirical,0.9902623984181289,783
+Last observed / terminal 4 years,Naïve-GRW-Y,0.9968882491695575,7305
+Last observed / terminal 4 years,Empirical,0.9912305864570277,2317
+Cumulative full trajectory,Naïve-GRW-Y,0.9950240465272703,10000
+Cumulative full trajectory,Empirical,0.9881723918546509,690
