@@ -1,0 +1,60 @@
+Zhang-ARW4 report
+
+Model
+Notebook reproduction of Zhang et al. full additive random-walk model.
+Initial productivity q0 is drawn from fitted exponential distribution.
+Transitions are drawn from stage-specific truncated Laplace distributions with mode q_t * beta_i and scale alpha_i.
+Career stages are selected by sorting cutoff sets by aic_varying.
+
+RAW_INPUT: /Users/samlunemagid/Desktop/shockley_repo/data/adjusted_productivity.csv
+N: 10000
+SEED: 63
+global_mode: 0.6895747100978533
+alpha_q0: 4.536448002095241
+mle_cutoffs: (4, 7, 13)
+
+Selected stage params
+   cutoffs  cutoff_start  cutoff_end    alpha  mode_beta   mode_mu     nll_mode  nll_mode_fixed    n
+(4, 7, 13)             0         4.0 4.454494   0.805997 -0.372357 22029.397183    22155.405806 8015
+(4, 7, 13)             4         7.0 4.252507   0.725395  0.070498 15397.188908    15410.773327 5625
+(4, 7, 13)             7        13.0 3.780786   0.726607 -0.625005 23254.155605    23278.872636 8923
+(4, 7, 13)            13         inf 3.520844   0.754281 -0.020581 15123.923098    15165.218180 5965
+
+Summary
+                                                                                               0
+model_name                                                                            Zhang-ARW4
+model_tag                                                                             zhang_arw4
+N_sim                                                                                      10000
+seed                                                                                          63
+raw_input               /Users/samlunemagid/Desktop/shockley_repo/data/adjusted_productivity.csv
+n_emp_all_individuals                                                                       2086
+n_emp_full_individuals                                                                       510
+global_mode                                                                             0.689575
+alpha_q0                                                                                4.536448
+mle_cutoffs                                                                           (4, 7, 13)
+empirical_mean_y0                                                                       4.536448
+empirical_mean_y5                                                                       7.645804
+empirical_mean_y10                                                                      6.612721
+empirical_mean_y20                                                                      6.547803
+simulated_mean_y0                                                                       4.483452
+simulated_mean_y5                                                                       7.859276
+simulated_mean_y10                                                                      6.642262
+simulated_mean_y20                                                                      6.270681
+empirical_median_y0                                                                     3.345619
+empirical_median_y5                                                                     6.157757
+empirical_median_y10                                                                    4.926206
+empirical_median_y20                                                                    4.493036
+simulated_median_y0                                                                     3.146779
+simulated_median_y5                                                                     6.537384
+simulated_median_y10                                                                    5.513982
+simulated_median_y20                                                                    5.215597
+ks_year_max_stat                                                                        0.036798
+ks_year_max_p                                                                           0.514548
+ks_cum_y5_stat                                                                          0.088476
+ks_cum_y5_p                                                                             0.000935
+emp_cum_gini                                                                             0.36043
+sim_cum_gini                                                                            0.176087
+emp_top_1pct_share                                                                      0.046541
+sim_top_1pct_share                                                                      0.021255
+emp_top_10pct_share                                                                     0.256832
+sim_top_10pct_share                                                                     0.165506

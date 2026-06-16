@@ -1,0 +1,2 @@
+p_init_active,alpha_q0_pos,restart_center,restart_alpha,q_scale_dropout,dropout_gamma_raw_scaled,memory_geom_p,memory_k_max,restart_memory_weight
+0.7902368293861769,5.4473276642909285,4.299784306131943,2.4875675793750243,5.828728802528235,1.0778316383915534,0.35,8,0.6
